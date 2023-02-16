@@ -38,7 +38,7 @@ const createUser = async (userBody) => {
   }
 
   // eslint-disable-next-line no-param-reassign
-  userBody.password = await bcrypt.hashSync(userBody.password, 10);
+  userBody.password = bcrypt.hashSync(userBody.password, 10);
 
   const { id } = await User.create(userBody);
   // eslint-disable-next-line no-return-await
